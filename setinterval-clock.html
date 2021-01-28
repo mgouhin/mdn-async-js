@@ -22,6 +22,7 @@
 
     let startDate = 0;
     let time = 0;
+    let stoppedFlag = false;
 
     const startButton = document.querySelector('.start');
     const stopButton = document.querySelector('.stop');
@@ -29,7 +30,7 @@
 
     function displayTime() {
       let currentDate = new Date();
-      if (startDate !== 0) {
+      if ((startDate !== 0) && !(stoppedFlag)) {
         time = currentDate - startDate;
       }
       document.querySelector('.clock').textContent = time;
@@ -37,10 +38,10 @@
 
     startButton.onclick = function () {
       startDate = new Date();
-      console.log(startDate.toLocaleString());
+      stoppedFlag = false;
     };
 
-    stopButton.onclick = () => alert('stop pressed');
+    stopButton.onclick = () => stoppedFlag = true;
 
     resetButton.onclick = function () {
       startDate = 0;
