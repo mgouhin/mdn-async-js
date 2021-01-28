@@ -33,7 +33,23 @@
       if ((startDate !== 0) && !(stoppedFlag)) {
         time = currentDate - startDate;
       }
-      document.querySelector('.clock').textContent = time;
+      document.querySelector('.clock').textContent = formatStopwatchTime(time);
+    }
+
+    function formatStopwatchTime(time) {
+      time = Math.round(time / 1000);
+      let hours = Math.round(time / 3600);
+      let minutes = Math.round(time % 3600 / 60);
+      let seconds = time % 3600 % 60;
+      return numToStringWithZeros(hours) + ':' + numToStringWithZeros(minutes) + ':' + numToStringWithZeros(seconds);
+    }
+
+    function numToStringWithZeros(num) {
+      let numString = '';
+      if (num < 10) {
+        numString = '0';
+      }
+      return numString + num.toString();
     }
 
     startButton.onclick = function () {
@@ -46,7 +62,7 @@
     resetButton.onclick = function () {
       startDate = 0;
       time = 0;
-      document.querySelector('.clock').textContent = time;
+      document.querySelector('.clock').textContent = formatStopwatchTime(time);
     }
 
     displayTime();
