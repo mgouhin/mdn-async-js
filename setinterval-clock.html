@@ -51,6 +51,19 @@
       text-decoration: none;
     }
 
+    button:hover {
+      box-shadow: 0 10px 10px hsla(0, 0%, 0%, 0.2);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    button:disabled:hover {
+      box-shadow: none;
+    }
+
     .start {
       background-color: green;
     }
