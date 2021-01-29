@@ -28,11 +28,12 @@
 
 <body>
   <div>&#8635;</div>
-  <p>This is my page</p>
   <script>
+    const body = document.querySelector('body');
     const spinner = document.querySelector('div');
     let rotateCount = 0;
     let startTime = null;
+    let spinningState = false;
     let rAF;
 
     function draw(timestamp) {
@@ -51,7 +52,15 @@
       rAF = requestAnimationFrame(draw);
     }
 
-    draw();
+    body.onclick = function () {
+      if (spinningState) {
+        cancelAnimationFrame(rAF);
+        spinningState = false;
+      } else {
+        draw();
+        spinningState = true;
+      }
+    };
   </script>
 </body>
 
