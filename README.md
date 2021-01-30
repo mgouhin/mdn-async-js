@@ -12,3 +12,5 @@ Repository is a collection of examples and mini-projects from Mozilla's *'Learn 
     1. Two player game to test reaction time when a spinner stops.
 1. basic-promise-example-asyncjs.html
     1. Example fetching an image.
+1. promise-all-example-asyncjs.html
+    1. Example using Promise.all()
